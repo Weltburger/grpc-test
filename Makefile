@@ -9,3 +9,8 @@ create:
 
 clean:
 	rm gen/proto/*.go
+
+docs:
+	protoc -I . --openapiv2_out ./gen/ \
+        --openapiv2_opt logtostderr=true \
+        proto/test.proto
