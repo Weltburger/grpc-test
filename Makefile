@@ -14,3 +14,12 @@ docs:
 	protoc -I . --openapiv2_out ./gen/ \
         --openapiv2_opt logtostderr=true \
         proto/test.proto
+
+generate:
+	cd proto; buf genetate
+
+run:
+	cd server; go rin server.go
+
+clean:
+	rm -rf proto
