@@ -5,6 +5,7 @@ package main;
 option go_package = "./proto";
 
 import "google/api/annotations.proto";
+import "validate/validate.proto";
 
 service TestApi {
   rpc Echo(ResponseRequest) returns (ResponseRequest) {
@@ -17,7 +18,7 @@ service TestApi {
 }
 
 message ResponseRequest {
-  string msg = 1;
+  string msg = 1 [(validate.rules).string = {min_len: 3, max_len: 10}];
 }
 
 message UserRequest {

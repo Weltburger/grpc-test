@@ -19,6 +19,10 @@ func (s *testApiServer) GetUser(ctx context.Context, req *pb.UserRequest) (*pb.U
 }
 
 func (s *testApiServer) Echo(ctx context.Context, req *pb.ResponseRequest) (*pb.ResponseRequest, error) {
+	err := req.Validate()
+	if err != nil {
+		return nil, err
+	}
 	return req, nil
 }
 

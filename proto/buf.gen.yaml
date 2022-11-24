@@ -13,5 +13,13 @@ plugins:
     opt:
       - paths=source_relative
       - generate_unbound_methods=true
+      - allow_delete_body=true
   - name: openapiv2
     out: ../gen/proto
+    opt:
+      - allow_delete_body=true
+  - name: validate
+    out: ../gen/proto/
+    opt:
+      - lang=go
+      - paths=source_relative
